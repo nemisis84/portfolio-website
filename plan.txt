@@ -1,0 +1,39 @@
+Stack:
+
+Frontend: React with TypeScript
+Styling: SCSS
+Backend: .NET Core Web API
+Database: PostgreSQL
+ORM: Entity Framework Core
+Version Control: Git (GitHub)
+Development environment: Docker
+
+
+Plan:
+
+1. Setup Development Environment:
+
+Install Docker Desktop on your machine.
+Initialize a Git repository and push it to GitHub.
+
+2. Backend Development (.NET Core Web API):
+
+Dockerize: Create a Dockerfile in your backend project root. This will describe how to create a Docker image for your .NET app.
+Database Setup: Instead of a local or managed PostgreSQL service, you'll use a PostgreSQL Docker container. Define this in a docker-compose.yml file.
+Follow the rest of the backend steps mentioned previously (models, migrations, API endpoints, etc.). However, when running your app or database commands, use docker-compose to ensure it runs inside containers.
+
+3. Frontend Development (React with TypeScript):
+Dockerize: Like with the backend, create a Dockerfile in your frontend project root.
+Develop: Follow the previously mentioned frontend steps. But remember, for local testing and development, you'll run the React app inside a Docker container using commands like docker-compose up.
+
+4. Docker Compose:
+Single File Setup: Use a single docker-compose.yml at the root of your project. This will define services for the frontend, backend, and database. It ensures they can communicate with each other and allows you to spin up your entire stack with a single command: docker-compose up.
+
+5.Local Testing:
+By using Docker Compose, you can easily start your entire stack, ensuring consistency across environments.
+
+6.Version Control:
+Regularly commit your changes to Git and push them to GitHub. Make sure to include your Dockerfile and docker-compose.yml but exclude any sensitive data (use .gitignore and environment variables for sensitive data).
+Continuous Integration/Deployment (Optional):
+
+If you later decide to set up CI/CD, platforms like GitHub Actions, GitLab CI, or Jenkins can use your Docker setup to ensure tests run in the same environment everywhere.
